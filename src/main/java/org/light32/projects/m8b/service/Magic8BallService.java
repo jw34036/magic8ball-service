@@ -28,8 +28,9 @@ public class Magic8BallService {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/ask")
-    Answer ask(@RequestBody Question question) {
+    AskResponse ask(@RequestBody Question question) {
         log.info("Magic8BallService : ask");
-        return new Answer(question, magic8Ball.ask());
+        Answer answer = new Answer(magic8Ball.ask());
+        return new AskResponse(question, answer);
     }
 }
