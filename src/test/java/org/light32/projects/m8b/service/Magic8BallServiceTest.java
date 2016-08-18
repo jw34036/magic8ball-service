@@ -19,16 +19,5 @@ public class Magic8BallServiceTest {
         assertNotNull(answer.getAnswer());
     }
 
-    @Test
-    public void testAskQuestion() throws Exception {
-        Magic8BallService service = new Magic8BallService();
-
-        Question question = new Question("Why?");
-
-        AskResponse response = service.ask(question);
-        assertNotNull(response);
-        assertNotNull(response.getAnswer());
-        assertNotNull(response.getQuestion());
-    }
 
 }
