@@ -5,7 +5,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 import java.io.Serializable;
 
 /**
- * TODO describe class
+ * response for a question sent to /ask
  *
  * @author jwhitt 8/17/16
  */
@@ -15,7 +15,7 @@ public class AskResponse implements Serializable {
     private final Question question;
     private final Answer answer;
 
-    public AskResponse(Question question, Answer answer) {
+    AskResponse(Question question, Answer answer) {
         this.question = question;
         this.answer = answer;
         this.id = DigestUtils.shaHex(new StringBuilder()
@@ -31,11 +31,11 @@ public class AskResponse implements Serializable {
                 .toString());
     }
 
-    public Question getQuestion() {
+    Question getQuestion() {
         return question;
     }
 
-    public Answer getAnswer() {
+    Answer getAnswer() {
         return answer;
     }
 
