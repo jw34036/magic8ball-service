@@ -7,6 +7,7 @@ import java.io.Serializable;
  */
 public class Question implements Serializable {
 
+    public static final Question BLANK = new Question("");
     private static final long serialVersionUID = 1L;
     private final long timestamp;
     private String question;
