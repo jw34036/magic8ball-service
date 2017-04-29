@@ -28,7 +28,9 @@ public class Magic8BallService {
     @RequestMapping(method = RequestMethod.GET, value = "/roll")
     Answer roll() {
         log.info("Magic8BallService : roll");
-        return new Answer(magic8Ball.ask());
+        AskResponse resp = new AskResponse(Question.BLANK, new Answer(magic8Ball.ask()));
+        storeResponse(resp);
+        return resp.getAnswer();
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/ask/{id}")
@@ -54,6 +56,11 @@ public class Magic8BallService {
         log.info("Magic8BallService : ask");
         Answer answer = new Answer(magic8Ball.ask());
         AskResponse response = new AskResponse(question, answer);
+        storeResponse(response);
+        return response;
+    }
+
+    private void storeResponse(AskResponse response) {
         if (m8bRepositoryAvailable) {
             try {
                 m8bRepository.save(response);
@@ -63,6 +70,5 @@ public class Magic8BallService {
                 throw e;
             }
         }
-        return response;
     }
 }
