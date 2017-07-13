@@ -7,7 +7,7 @@
     <artifactId>magic8ball-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-
+    <!-- this comment for changes to merge -->
     <name>Magic8BallService</name>
 
     <parent>
